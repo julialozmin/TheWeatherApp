@@ -19,49 +19,73 @@
       href="https://fonts.googleapis.com/css2?family=Onest:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="src/styles.css" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <title>The Weather App</title>
   </head>
   <body>
     <div class="container">
       <div class="card">
         <div class="row">
-          <div class="col-8">
-            <form>
+          <div class="col-12">
+            <form id="search-form">
               <div class="input-group mb-3">
                 <input
                   type="text"
                   class="form-control"
                   placeholder="Enter a city"
                   aria-describedby="button-addon2"
+                  id="enterCity"
                 />
-                <button class="btn btn-outline-secondary" type="button">
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  id="searchButton"
+                >
                   Search
                 </button>
-              </div>
-              <div class="row">
-                <div class="col-9">
-                  <h6 class="dateHour">Sunday, 24th September 2024</h6>
-                </div>
-                <div class="col-3">
-                  <h6 class="dateHour">14:16</h6>
-                </div>
+                <button
+                  class="btn btn-outline-secondary-current"
+                  type="button"
+                  id="locationButton"
+                >
+                  Current Location
+                </button>
               </div>
             </form>
+          </div>
+          <div class="col-8">
+            <div class="row">
+              <div class="col-9">
+                <h6 class="dateHour" id="date"></h6>
+              </div>
+              <div class="col-3">
+                <h6 class="dateHour" id="hour"></h6>
+              </div>
+            </div>
+
             <div class="row">
               <div class="col-6">
-                <h2>Rome</h2>
-                <h6>Clear</h6>
-                <h1>16ºC</h1>
+                <h2 id="cityEntered"></h2>
+                <h6 id="descriptionValue"></h6>
+                <h1 id="degreesValue"></h1>
+
+                <h1 class="degreesMeasurement" id="changeDegrees">
+                  <a href="#" id="celsiusDegrees">C</a>
+                  /
+                  <a href="#" id="fahrenheitDegrees">F</a>
+                </h1>
               </div>
               <div class="col-6">
                 <div class="mainIcon"><i class="fa-solid fa-sun"></i></div>
 
                 <h6 class="dailyValues">
-                  Precipitation 82%
+                  Humidity
+                  <span id="humidityValue"></span>%
                   <br />
-                  Wind 1 km/h
+                  Wind
+                  <span id="windValue"></span>
+                  km/h
                 </h6>
               </div>
             </div>
@@ -93,6 +117,6 @@
         </div>
       </div>
     </div>
+    <script src="src/index.js"></script>
   </body>
-  <script src="src/index.js"></script>
 </html>
