@@ -11,6 +11,17 @@
 .btn-outline-secondary:hover {
   background-color: #155263;
 }
+.btn-outline-secondary-current {
+  text-align: center;
+  cursor: pointer;
+  color: #6c757d;
+  border: var(--bs-btn-border-width) solid var(--bs-btn-border-color);
+  border-color: #6c757d;
+}
+.btn-outline-secondary-current:hover {
+  background-color: #155263;
+  color: #fff;
+}
 h1 {
   text-align: center;
   font-size: 38px;
@@ -21,6 +32,9 @@ h1 {
 h2 {
   font-size: 38px;
   margin: 20px 0 0 0;
+}
+.degreesMeasurement {
+  font-size: 18px;
 }
 .dateHour {
   font-size: 14px;
