@@ -1,0 +1,61 @@
+.container {
+  margin-top: 100px;
+}
+.card {
+  background: #f2f9f1;
+  color: #155263;
+  padding: 15px;
+  font-family: "Onest", sans-serif;
+  width: 500px;
+}
+.btn-outline-secondary:hover {
+  background-color: #155263;
+}
+h1 {
+  text-align: center;
+  font-size: 38px;
+  margin: 0;
+  position: relative;
+  bottom: -10px;
+}
+h2 {
+  font-size: 38px;
+  margin: 20px 0 0 0;
+}
+.dateHour {
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.mainIcon {
+  font-size: 84px;
+  text-align: center;
+  color: #ffc93c;
+}
+.dailyValues {
+  text-align: center;
+  font-size: 14px;
+}
+
+ul {
+  list-style: none;
+  text-align: right;
+  padding: 0;
+  margin: 10px 0px 6px 0px;
+}
+
+.forecastDays {
+  font-size: 16px;
+}
+
+.sun {
+  color: #ffc93c;
+  font-size: 28px;
+  position: relative;
+  bottom: -4px;
+}
+.cloud {
+  color: #5f6769;
+  font-size: 28px;
+  position: relative;
+  bottom: -4px;
+}
