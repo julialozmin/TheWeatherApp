@@ -54,8 +54,6 @@ dateDisplay.innerHTML = formatDate(currentDate);
 let hourDisplay = document.querySelector("#hour");
 hourDisplay.innerHTML = formatTime(currentDate);
 
-//Change the city and add API to update the values
-
 function displayWeatherCondition(response) {
   document.querySelector("#cityEntered").innerHTML = response.data.name;
   document.querySelector("#degreesValue").innerHTML = `${Math.round(
@@ -68,6 +66,15 @@ function displayWeatherCondition(response) {
   document.querySelector("#windValue").innerHTML = Math.round(
     response.data.wind.speed
   );
+  document
+    .querySelector("#main-icon")
+    .setAttribute(
+      "src",
+      `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+  document
+    .querySelector("#main-icon")
+    .setAttribute("alt", response.data.weather[0].main);
 }
 
 function searchCity(citySearch) {
