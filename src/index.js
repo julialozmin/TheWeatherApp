@@ -55,9 +55,11 @@ let hourDisplay = document.querySelector("#hour");
 hourDisplay.innerHTML = formatTime(currentDate);
 
 function displayWeatherCondition(response) {
+  celsiusTemperature = response.data.temperature.current;
+
   document.querySelector("#cityEntered").innerHTML = response.data.city;
   document.querySelector("#degreesValue").innerHTML = `${Math.round(
-    response.data.temperature.current
+    celsiusTemperature
   )}º`;
   document.querySelector("#descriptionValue").innerHTML =
     response.data.condition.description;
@@ -100,6 +102,8 @@ function retrievePosition(position) {
   axios.get(apiUrl).then(displayWeatherCondition);
 }
 
+let celsiusTemperature = null;
+
 let searchbarField = document.querySelector("#search-form");
 let clickSearchButton = document.querySelector("#searchButton");
 let clickLocationButton = document.querySelector("#locationButton");
@@ -110,3 +114,25 @@ clickSearchButton.addEventListener("click", handleSubmit);
 clickLocationButton.addEventListener("click", locatedCity);
 
 searchCity("Chieti");
+
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let fahrenheitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let temperatureElement = document.querySelector("#degreesValue");
+  temperatureElement.innerHTML = `${fahrenheitTemperature}º`;
+}
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#degreesValue");
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}º`;
+}
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);

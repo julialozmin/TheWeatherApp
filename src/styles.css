@@ -1,5 +1,6 @@
 .container {
   margin-top: 100px;
+  cursor: default;
 }
 .card {
   background: #f2f9f1;
@@ -35,7 +36,16 @@ h2 {
 }
 .degreesMeasurement {
   font-size: 18px;
+  text-align: center;
 }
+.degreesMeasurement .active {
+  color: #155263;
+}
+.degreesMeasurement a {
+  text-decoration: none;
+  cursor: default;
+}
+
 .dateHour {
   font-size: 14px;
   margin-bottom: 2px;
@@ -50,6 +60,9 @@ h2 {
   font-size: 14px;
 }
 
+h6 {
+  text-transform: capitalize;
+}
 ul {
   list-style: none;
   text-align: right;
