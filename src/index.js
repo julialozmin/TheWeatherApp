@@ -54,6 +54,12 @@ dateDisplay.innerHTML = formatDate(currentDate);
 let hourDisplay = document.querySelector("#hour");
 hourDisplay.innerHTML = formatTime(currentDate);
 
+function getForecast(city) {
+  let forecastKey = `o214a6c6f6d2f53a6749b30tbf45c1ef`;
+  let forecastUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${forecastKey}&units=metric`;
+  axios.get(forecastUrl).then(displayForecast);
+}
+
 function displayWeatherCondition(response) {
   celsiusTemperature = response.data.temperature.current;
 
@@ -74,6 +80,8 @@ function displayWeatherCondition(response) {
   document
     .querySelector("#main-icon")
     .setAttribute("alt", response.data.condition.description);
+  console.log(response.data.city);
+  getForecast(response.data.city);
 }
 
 function searchCity(citySearch) {
@@ -114,7 +122,6 @@ clickSearchButton.addEventListener("click", handleSubmit);
 clickLocationButton.addEventListener("click", locatedCity);
 
 searchCity("Chieti");
-displayForecast();
 
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
@@ -138,7 +145,8 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div>`;
   let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
