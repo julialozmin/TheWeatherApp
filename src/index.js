@@ -74,7 +74,7 @@ function displayWeatherCondition(response) {
   document.querySelector("#cityEntered").innerHTML = response.data.city;
   document.querySelector("#degreesValue").innerHTML = `${Math.round(
     celsiusTemperature
-  )}º <small>C</small>`;
+  )}º<span class="degreesC">C</span>`;
   document.querySelector("#descriptionValue").innerHTML =
     response.data.condition.description;
   document.querySelector("#humidityValue").innerHTML =
@@ -146,9 +146,9 @@ function displayForecast(response) {
         <span class="weather-forecast-temperatures">
           <span class="weather-forecast-temperature-min">${Math.round(
             forecastDataDay.temperature.minimum
-          )}</span>º-<span
+          )}</span>-<span
             class="weather-forecast-temperature-max"
-            >${Math.round(forecastDataDay.temperature.maximum)}</span
+            >${Math.round(forecastDataDay.temperature.maximum)}º</span
           >      
             <img
           src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
@@ -163,4 +163,10 @@ function displayForecast(response) {
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+
+  document.querySelector(
+    "#max-min-values"
+  ).innerHTML = `<span class="temperatureMin">${Math.round(
+    forecastData[0].temperature.minimum
+  )}</span>-${Math.round(forecastData[0].temperature.maximum)}º`;
 }

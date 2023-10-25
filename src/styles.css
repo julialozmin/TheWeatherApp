@@ -34,9 +34,17 @@ h2 {
   font-size: 38px;
   margin: 20px 0 0 0;
 }
-.degreesMeasurement {
+.degreesC {
+  opacity: 0.8;
   font-size: 18px;
+}
+.maxMinTemperatures {
+  font-size: 16px;
+  margin-top: 14px;
   text-align: center;
+}
+.temperatureMin {
+  opacity: 0.6;
 }
 
 .dateHour {
