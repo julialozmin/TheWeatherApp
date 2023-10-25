@@ -63,7 +63,17 @@ h2 {
 h6 {
   text-transform: capitalize;
 }
-ul {
+
+.weather-forecast {
+  text-align: right;
+  font-size: 16px;
+}
+
+.weather-forecast-temperature-min {
+  opacity: 0.6;
+}
+
+/* ul {
   list-style: none;
   text-align: right;
   padding: 0;
@@ -85,4 +95,4 @@ ul {
   font-size: 28px;
   position: relative;
   bottom: -4px;
-}
+} */
