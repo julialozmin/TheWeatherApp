@@ -67,32 +67,9 @@ h6 {
 .weather-forecast {
   text-align: right;
   font-size: 16px;
+  text-align: center;
 }
 
 .weather-forecast-temperature-min {
   opacity: 0.6;
 }
-
-/* ul {
-  list-style: none;
-  text-align: right;
-  padding: 0;
-  margin: 10px 0px 6px 0px;
-}
-
-.forecastDays {
-  font-size: 16px;
-}
-
-.sun {
-  color: #ffc93c;
-  font-size: 28px;
-  position: relative;
-  bottom: -4px;
-}
-.cloud {
-  color: #5f6769;
-  font-size: 28px;
-  position: relative;
-  bottom: -4px;
-} */

@@ -171,15 +171,15 @@ function displayForecast(response) {
           )}</span>º-<span
             class="weather-forecast-temperature-max"
             >${Math.round(forecastDataDay.temperature.maximum)}</span
-          >º
+          >      
             <img
           src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
             forecastDataDay.condition.icon
           }.png"
-          alt=""
+          alt="${forecastDataDay.condition.description}"
           width="42"
+          id= "image"
         />
-        </div>
         `;
     }
   });
