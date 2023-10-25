@@ -38,13 +38,6 @@ h2 {
   font-size: 18px;
   text-align: center;
 }
-.degreesMeasurement .active {
-  color: #155263;
-}
-.degreesMeasurement a {
-  text-decoration: none;
-  cursor: default;
-}
 
 .dateHour {
   font-size: 14px;

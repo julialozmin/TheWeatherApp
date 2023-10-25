@@ -74,7 +74,7 @@ function displayWeatherCondition(response) {
   document.querySelector("#cityEntered").innerHTML = response.data.city;
   document.querySelector("#degreesValue").innerHTML = `${Math.round(
     celsiusTemperature
-  )}º`;
+  )}º <small>C</small>`;
   document.querySelector("#descriptionValue").innerHTML =
     response.data.condition.description;
   document.querySelector("#humidityValue").innerHTML =
@@ -129,28 +129,6 @@ clickSearchButton.addEventListener("click", handleSubmit);
 clickLocationButton.addEventListener("click", locatedCity);
 
 searchCity("Chieti");
-
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  let fahrenheitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let temperatureElement = document.querySelector("#degreesValue");
-  temperatureElement.innerHTML = `${fahrenheitTemperature}º`;
-}
-function displayCelsiusTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#degreesValue");
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}º`;
-}
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 function displayForecast(response) {
   let forecastData = response.data.daily;
