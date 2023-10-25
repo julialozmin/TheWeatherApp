@@ -114,6 +114,7 @@ clickSearchButton.addEventListener("click", handleSubmit);
 clickLocationButton.addEventListener("click", locatedCity);
 
 searchCity("Chieti");
+displayForecast();
 
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
@@ -136,3 +137,30 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div>`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `     
+        <div class="weather-forecast" id="forecast">
+        <span class="weather-forecast-day">${day}</span>
+        <span class="weather-forecast-temperatures">
+          <span class="weather-forecast-temperature-min">16</span>º-<span
+            class="weather-forecast-temperature-max"
+            >19</span
+          >º
+            <img
+          src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
+          alt=""
+          width="42"
+        />
+        </div>
+        `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
