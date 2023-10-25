@@ -46,6 +46,14 @@ function formatTime(date) {
   return `${hours}:${minutes}`;
 }
 
+function formatForecastDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  return days[day];
+}
+
 let dateDisplay = document.querySelector("#date");
 let currentDate = new Date();
 
@@ -80,7 +88,6 @@ function displayWeatherCondition(response) {
   document
     .querySelector("#main-icon")
     .setAttribute("alt", response.data.condition.description);
-  console.log(response.data.city);
   getForecast(response.data.city);
 }
 
@@ -146,28 +153,35 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecastData = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div>`;
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `     
+  forecastData.forEach(function (forecastDataDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `     
         <div class="weather-forecast" id="forecast">
-        <span class="weather-forecast-day">${day}</span>
+        <span class="weather-forecast-day">${formatForecastDay(
+          forecastDataDay.time
+        )}</span>
         <span class="weather-forecast-temperatures">
-          <span class="weather-forecast-temperature-min">16</span>º-<span
+          <span class="weather-forecast-temperature-min">${Math.round(
+            forecastDataDay.temperature.minimum
+          )}</span>º-<span
             class="weather-forecast-temperature-max"
-            >19</span
+            >${Math.round(forecastDataDay.temperature.maximum)}</span
           >º
             <img
-          src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
+          src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+            forecastDataDay.condition.icon
+          }.png"
           alt=""
           width="42"
         />
         </div>
         `;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
