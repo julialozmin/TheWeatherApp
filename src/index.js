@@ -133,16 +133,16 @@ searchCity("Chieti");
 function displayForecast(response) {
   let forecastData = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-  let forecastHTML = `<div>`;
+  let forecastHTML = `<ul class="forecastItems">`;
   forecastData.forEach(function (forecastDataDay, index) {
-    if (index < 5) {
+    if ((index > 0) & (index < 5)) {
       forecastHTML =
         forecastHTML +
         `     
-        <div class="weather-forecast" id="forecast">
-        <span class="weather-forecast-day">${formatForecastDay(
-          forecastDataDay.time
-        )}</span>
+        <li class="forecast" id="forecast">
+               <span class="weather-forecast-day">${formatForecastDay(
+                 forecastDataDay.time
+               )}</span>
         <span class="weather-forecast-temperatures">
           <span class="weather-forecast-temperature-min">${Math.round(
             forecastDataDay.temperature.minimum
@@ -161,7 +161,7 @@ function displayForecast(response) {
         `;
     }
   });
-  forecastHTML = forecastHTML + `</div>`;
+  forecastHTML = forecastHTML + `</ul>`;
   forecastElement.innerHTML = forecastHTML;
 
   document.querySelector(

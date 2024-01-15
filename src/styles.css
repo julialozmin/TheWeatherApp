@@ -8,12 +8,17 @@ h1 {
 
 h2 {
   font-size: 38px;
-  margin: 20px 0 0 0;
-  white-space: nowrap;
+  margin: 10px 0 0 5px;
+  overflow-wrap: break-word;
 }
 
 h6 {
   text-transform: capitalize;
+}
+
+img {
+  position: relative;
+  bottom: 2px;
 }
 
 .container {
@@ -23,7 +28,7 @@ h6 {
 
 .card,
 small {
-  width: 500px;
+  max-width: 500px;
   display: block;
   margin: 0 auto;
 }
@@ -52,6 +57,21 @@ small {
   color: #fff;
 }
 
+.dateHourDetails {
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.hour {
+  padding-left: 30px;
+}
+
+.descriptionValue {
+  margin: 10px 0 0 5px;
+}
+
 .degreesC {
   opacity: 0.8;
   font-size: 18px;
@@ -67,31 +87,45 @@ small {
   opacity: 0.6;
 }
 
-.dateHour {
-  font-size: 14px;
-  margin-bottom: 2px;
+.mainIcon {
+  position: relative;
+  bottom: 10px;
 }
 
 .dailyValues {
-  text-align: center;
-  font-size: 14px;
-}
-
-.mainIcon {
-  text-align: center;
-}
-
-.forecastDisplay {
-  padding-top: 10px;
-}
-
-.weather-forecast {
-  text-align: right;
   font-size: 16px;
+}
+
+.forecastItems {
+  padding: 26px 0 0 10px;
+  list-style: none;
   text-align: center;
-  white-space: nowrap;
+  overflow-wrap: break-word;
+  margin: 0 auto;
 }
 
 .weather-forecast-temperature-min {
   opacity: 0.6;
+}
+
+@media (max-width: 570px) {
+  h2 {
+    font-size: 34px;
+    margin: 10px 0 0 0;
+  }
+
+  .card {
+    max-width: 350px;
+  }
+
+  .dateHourDetails {
+    font-size: 12px;
+  }
+
+  .forecastItems {
+    font-size: 12px;
+    padding: 5px 0 0 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 }

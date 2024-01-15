@@ -23,7 +23,7 @@
     <div class="container">
       <div class="card">
         <div class="row">
-          <div class="col-12">
+          <div class="col-sm-12">
             <form id="search-form">
               <div class="input-group mb-3">
                 <input
@@ -50,46 +50,54 @@
                 </button>
               </div>
             </form>
-          </div>
-          <div class="col-8">
             <div class="row">
-              <div class="col-9">
-                <h6 class="dateHour" id="date"></h6>
-              </div>
-              <div class="col-3">
-                <h6 class="dateHour" id="hour"></h6>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-12">
-                <h2 id="cityEntered"></h2>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-6">
-                <h6 id="descriptionValue"></h6>
-                <h1 id="degreesValue"></h1>
-                <h6 class="maxMinTemperatures" id="max-min-values"></h6>
-              </div>
-              <div class="col-6">
-                <div class="mainIcon">
-                  <img id="main-icon" src="" alt="" />
+              <div class="col-12 dateHourDetails">
+                <div>
+                  <h6 class="date" id="date"></h6>
                 </div>
-                <h6 class="dailyValues">
-                  Humidity
-                  <span id="humidityValue"></span>%
-                  <br />
-                  Wind
-                  <span id="windValue"></span>
-                  km/h
-                </h6>
+                <div>
+                  <h6 class="hour" id="hour"></h6>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-4">
-            <div class="forecastDisplay">
-              <div class="weather-forecast" id="forecast"></div>
+          <div class="row">
+            <div class="col-sm-8">
+              <div class="row">
+                <div class="col-sm-12">
+                  <h2 id="cityEntered"></h2>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6 degreesColumn">
+                  <div>
+                    <h6 class="descriptionValue" id="descriptionValue"></h6>
+                  </div>
+
+                  <h1 id="degreesValue"></h1>
+                  <div>
+                    <h6 class="maxMinTemperatures" id="max-min-values"></h6>
+                  </div>
+                </div>
+                <div class="col-6 icon-column text-center">
+                  <div class="mainIcon">
+                    <img id="main-icon" src="" alt="" />
+                  </div>
+                  <div class="values">
+                    <h6 class="dailyValues">
+                      Humidity
+                      <span id="humidityValue"></span>%
+                      <br />
+                      Wind
+                      <span id="windValue"></span>
+                      km/h
+                    </h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4 pe-0">
+              <div class="forecastDisplay" id="forecast"></div>
             </div>
           </div>
         </div>
