@@ -146,7 +146,7 @@ function displayForecast(response) {
         <span class="weather-forecast-temperatures">
           <span class="weather-forecast-temperature-min">${Math.round(
             forecastDataDay.temperature.minimum
-          )}</span>-<span
+          )}</span>/<span
             class="weather-forecast-temperature-max"
             >${Math.round(forecastDataDay.temperature.maximum)}º</span
           >      
@@ -168,5 +168,5 @@ function displayForecast(response) {
     "#max-min-values"
   ).innerHTML = `<span class="temperatureMin">${Math.round(
     forecastData[0].temperature.minimum
-  )}</span>-${Math.round(forecastData[0].temperature.maximum)}º`;
+  )}</span>/${Math.round(forecastData[0].temperature.maximum)}º`;
 }
