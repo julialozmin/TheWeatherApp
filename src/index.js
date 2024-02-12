@@ -1,3 +1,13 @@
+let currentDate = new Date();
+const dateDisplay = document.querySelector("#date");
+const hourDisplay = document.querySelector("#hour");
+
+let celsiusTemperature = null;
+
+const searchbarField = document.querySelector("#search-form");
+const clickSearchButton = document.querySelector("#searchButton");
+const clickLocationButton = document.querySelector("#locationButton");
+
 function formatDate(date) {
   let year = date.getFullYear();
 
@@ -54,14 +64,6 @@ function formatForecastDay(timestamp) {
   return days[day];
 }
 
-const dateDisplay = document.querySelector("#date");
-let currentDate = new Date();
-
-dateDisplay.innerHTML = formatDate(currentDate);
-
-const hourDisplay = document.querySelector("#hour");
-hourDisplay.innerHTML = formatTime(currentDate);
-
 function getForecast(city) {
   const forecastKey = `o214a6c6f6d2f53a6749b30tbf45c1ef`;
   const forecastUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${forecastKey}&units=metric`;
@@ -117,19 +119,6 @@ function retrievePosition(position) {
   axios.get(apiUrl).then(displayWeatherCondition);
 }
 
-let celsiusTemperature = null;
-
-const searchbarField = document.querySelector("#search-form");
-const clickSearchButton = document.querySelector("#searchButton");
-const clickLocationButton = document.querySelector("#locationButton");
-
-searchbarField.addEventListener("submit", handleSubmit);
-clickSearchButton.addEventListener("click", handleSubmit);
-
-clickLocationButton.addEventListener("click", locatedCity);
-
-locatedCity();
-
 function displayForecast(response) {
   let forecastData = response.data.daily;
   const forecastElement = document.querySelector("#forecast");
@@ -170,3 +159,12 @@ function displayForecast(response) {
     forecastData[0].temperature.minimum
   )}</span>/${Math.round(forecastData[0].temperature.maximum)}º`;
 }
+
+dateDisplay.innerHTML = formatDate(currentDate);
+hourDisplay.innerHTML = formatTime(currentDate);
+
+searchbarField.addEventListener("submit", handleSubmit);
+clickSearchButton.addEventListener("click", handleSubmit);
+clickLocationButton.addEventListener("click", locatedCity);
+
+locatedCity();
