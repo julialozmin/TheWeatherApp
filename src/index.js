@@ -128,7 +128,7 @@ clickSearchButton.addEventListener("click", handleSubmit);
 
 clickLocationButton.addEventListener("click", locatedCity);
 
-searchCity("Chieti");
+locatedCity();
 
 function displayForecast(response) {
   let forecastData = response.data.daily;
