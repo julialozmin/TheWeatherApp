@@ -25,6 +25,7 @@ function formatDate(date) {
     "November",
     "December",
   ];
+
   let currentMonth = months[date.getMonth()];
 
   let currentDay = date.getDate();
@@ -40,7 +41,7 @@ function formatDate(date) {
   ];
   let currentWeekDay = days[date.getDay()];
 
-  return `${currentWeekDay}, ${currentDay}th ${currentMonth} ${year}`;
+  return `${currentWeekDay}, ${currentMonth} ${currentDay}, ${year}`;
 }
 
 function formatTime(date) {
