@@ -103,6 +103,7 @@ function searchCity(citySearch) {
 function handleSubmit(event) {
   event.preventDefault();
   let citySearch = document.querySelector("#enterCity").value;
+  this.reset();
   searchCity(citySearch);
 }
 
