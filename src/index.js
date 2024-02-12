@@ -1,7 +1,7 @@
 function formatDate(date) {
   let year = date.getFullYear();
 
-  let months = [
+  const months = [
     "January",
     "February",
     "March",
@@ -19,7 +19,7 @@ function formatDate(date) {
 
   let currentDay = date.getDate();
 
-  let days = [
+  const days = [
     "Sunday",
     "Monday",
     "Tuesday",
@@ -48,23 +48,23 @@ function formatTime(date) {
 
 function formatForecastDay(timestamp) {
   let date = new Date(timestamp * 1000);
-  let day = date.getDay();
+  const day = date.getDay();
 
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  const days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
   return days[day];
 }
 
-let dateDisplay = document.querySelector("#date");
+const dateDisplay = document.querySelector("#date");
 let currentDate = new Date();
 
 dateDisplay.innerHTML = formatDate(currentDate);
 
-let hourDisplay = document.querySelector("#hour");
+const hourDisplay = document.querySelector("#hour");
 hourDisplay.innerHTML = formatTime(currentDate);
 
 function getForecast(city) {
-  let forecastKey = `o214a6c6f6d2f53a6749b30tbf45c1ef`;
-  let forecastUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${forecastKey}&units=metric`;
+  const forecastKey = `o214a6c6f6d2f53a6749b30tbf45c1ef`;
+  const forecastUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${forecastKey}&units=metric`;
   axios.get(forecastUrl).then(displayForecast);
 }
 
@@ -92,8 +92,8 @@ function displayWeatherCondition(response) {
 }
 
 function searchCity(citySearch) {
-  let apiKey = `o214a6c6f6d2f53a6749b30tbf45c1ef`;
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${citySearch}&key=${apiKey}&units=metric`;
+  const apiKey = `o214a6c6f6d2f53a6749b30tbf45c1ef`;
+  const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${citySearch}&key=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(displayWeatherCondition);
 }
@@ -111,7 +111,7 @@ function locatedCity(event) {
 function retrievePosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
-  let apiKey = `o214a6c6f6d2f53a6749b30tbf45c1ef`;
+  const apiKey = `o214a6c6f6d2f53a6749b30tbf45c1ef`;
   let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(displayWeatherCondition);
@@ -119,9 +119,9 @@ function retrievePosition(position) {
 
 let celsiusTemperature = null;
 
-let searchbarField = document.querySelector("#search-form");
-let clickSearchButton = document.querySelector("#searchButton");
-let clickLocationButton = document.querySelector("#locationButton");
+const searchbarField = document.querySelector("#search-form");
+const clickSearchButton = document.querySelector("#searchButton");
+const clickLocationButton = document.querySelector("#locationButton");
 
 searchbarField.addEventListener("submit", handleSubmit);
 clickSearchButton.addEventListener("click", handleSubmit);
@@ -132,7 +132,7 @@ searchCity("Chieti");
 
 function displayForecast(response) {
   let forecastData = response.data.daily;
-  let forecastElement = document.querySelector("#forecast");
+  const forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<ul class="forecastItems">`;
   forecastData.forEach(function (forecastDataDay, index) {
     if ((index > 0) & (index < 5)) {
