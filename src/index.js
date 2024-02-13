@@ -2,7 +2,7 @@ let currentDate = new Date();
 const dateDisplay = document.querySelector("#date");
 const hourDisplay = document.querySelector("#hour");
 
-let celsiusTemperature = null;
+let celsiusTemperature = "";
 
 const searchbarField = document.querySelector("#search-form");
 const clickLocationButton = document.querySelector("#location-button");
