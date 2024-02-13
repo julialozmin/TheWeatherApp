@@ -58,7 +58,7 @@ small {
   color: #fff;
 }
 
-.dateHourDetails {
+.date-hour-details {
   display: flex;
   justify-content: center;
   font-size: 14px;
@@ -69,35 +69,35 @@ small {
   padding-left: 30px;
 }
 
-.descriptionValue {
+.description-value {
   margin: 10px 0 0 5px;
 }
 
-.degreesC {
+.degrees-c {
   opacity: 0.8;
   font-size: 18px;
 }
 
-.maxMinTemperatures {
+.max-min-temperatures {
   font-size: 16px;
   margin-top: 14px;
   text-align: center;
 }
 
-.temperatureMin {
+.temperature-min {
   opacity: 0.6;
 }
 
-.mainIcon {
+.main-icon {
   position: relative;
   bottom: 10px;
 }
 
-.dailyValues {
+.daily-values {
   font-size: 16px;
 }
 
-.forecastItems {
+.forecast-items {
   padding: 26px 0 0 10px;
   list-style: none;
   text-align: center;
@@ -119,11 +119,11 @@ small {
     max-width: 350px;
   }
 
-  .dateHourDetails {
+  .date-hour-details {
     font-size: 12px;
   }
 
-  .forecastItems {
+  .forecast-items {
     font-size: 12px;
     padding: 5px 0 0 5px;
     display: grid;

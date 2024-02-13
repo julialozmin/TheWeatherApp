@@ -5,8 +5,7 @@ const hourDisplay = document.querySelector("#hour");
 let celsiusTemperature = null;
 
 const searchbarField = document.querySelector("#search-form");
-const clickSearchButton = document.querySelector("#searchButton");
-const clickLocationButton = document.querySelector("#locationButton");
+const clickLocationButton = document.querySelector("#location-button");
 
 function formatDate(date) {
   let year = date.getFullYear();
@@ -74,15 +73,15 @@ function getForecast(city) {
 function displayWeatherCondition(response) {
   celsiusTemperature = response.data.temperature.current;
 
-  document.querySelector("#cityEntered").innerHTML = response.data.city;
-  document.querySelector("#degreesValue").innerHTML = `${Math.round(
+  document.querySelector("#city-entered").innerHTML = response.data.city;
+  document.querySelector("#degrees-value").innerHTML = `${Math.round(
     celsiusTemperature
-  )}º<span class="degreesC">C</span>`;
-  document.querySelector("#descriptionValue").innerHTML =
+  )}º<span class="degrees-c">C</span>`;
+  document.querySelector("#description-value").innerHTML =
     response.data.condition.description;
-  document.querySelector("#humidityValue").innerHTML =
+  document.querySelector("#humidity-value").innerHTML =
     response.data.temperature.humidity;
-  document.querySelector("#windValue").innerHTML = Math.round(
+  document.querySelector("#wind-value").innerHTML = Math.round(
     3.6 * response.data.wind.speed
   );
   document
@@ -103,7 +102,7 @@ function searchCity(citySearch) {
 
 function handleSubmit(event) {
   event.preventDefault();
-  let citySearch = document.querySelector("#enterCity").value;
+  let citySearch = document.querySelector("#enter-city").value;
   this.reset();
   searchCity(citySearch);
 }
@@ -124,7 +123,7 @@ function retrievePosition(position) {
 function displayForecast(response) {
   let forecastData = response.data.daily;
   const forecastElement = document.querySelector("#forecast");
-  let forecastHTML = `<ul class="forecastItems">`;
+  let forecastHTML = `<ul class="forecast-items">`;
   forecastData.forEach(function (forecastDataDay, index) {
     if ((index > 0) & (index < 5)) {
       forecastHTML =
@@ -157,7 +156,7 @@ function displayForecast(response) {
 
   document.querySelector(
     "#max-min-values"
-  ).innerHTML = `<span class="temperatureMin">${Math.round(
+  ).innerHTML = `<span class="temperature-min">${Math.round(
     forecastData[0].temperature.minimum
   )}</span>/${Math.round(forecastData[0].temperature.maximum)}º`;
 }
@@ -166,7 +165,7 @@ dateDisplay.innerHTML = formatDate(currentDate);
 hourDisplay.innerHTML = formatTime(currentDate);
 
 searchbarField.addEventListener("submit", handleSubmit);
-clickSearchButton.addEventListener("click", handleSubmit);
+searchbarField.addEventListener("click", handleSubmit);
 clickLocationButton.addEventListener("click", locatedCity);
 
 locatedCity();
